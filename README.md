@@ -1,1 +1,1 @@
-# Simplex_Maximizaci-n
+# Simplex_Maximizacion
