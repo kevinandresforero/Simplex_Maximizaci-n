@@ -45,11 +45,13 @@ for f in range(0, NumRest):
         if (f == c):
             Holgura[f,c] = 1
 
-print(Holgura)
-print()
-
+'''Lleno la Tabla Simplex'''
 for f in range(0, NumFil):
     for c in range(0, NumCol):
+        if(c>0 and c<NumVar+1 and f < NumFil-1):
+            TablaSimplex[f,c] = MatrizRstr[f,c-1]
+        if(c == NumCol-1  and f < NumFil-1 ):
+            TablaSimplex[f,c] = Resultado[f]
         if(c==0):
             if(f < NumRest):
                 TablaSimplex[f,c] = 0
@@ -62,7 +64,9 @@ for f in range(0, NumFil):
                     TablaSimplex[f,c] = Holgura[f,c-NumVar-1 ]
 
 print()
-print(" la Tabla simplex es ? :   ")
+print(" la Tabla simplex es :   ")
 print()
 print(TablaSimplex)
 print()
+
+
